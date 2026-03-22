@@ -1,24 +1,29 @@
-const { Sequelize } = require('sequelize');
-const databaseConnectionString = include('databaseConnectionSequelize');
+const { Sequelize, DataTypes } = require('sequelize');
+const sequelizeConfig = include('databaseConnectionSequelize');
 
-const sequelize = new Sequelize(databaseConnectionString);
+const sequelize = new Sequelize(
+    sequelizeConfig.database,
+    sequelizeConfig.username,
+    sequelizeConfig.password,
+    sequelizeConfig
+);
 
 const petModel = sequelize.define('pet', {
     pet_id: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
     pet_name: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull: false
     },
     person_id: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     pet_type_id: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false
     }
 }, {
