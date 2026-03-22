@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets</title>
+    <link rel="stylesheet" href="/bulma.min.css">
+</head>
+<body>
+<section class="section">
+    <div class="container">
+        <h1 class="title">Pets</h1>
+
+        <table class="table is-striped is-hoverable is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Pet Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let i = 0; i < allPets.length; i++) { %>
+                    <tr>
+                        <td><%= allPets[i].pet_name %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>There are <%= allPets.length %> pets.</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</section>
+</body>
+</html>
